@@ -1,10 +1,8 @@
 # piarmy-video-player
 
-Work in progress. Documentation and tutorial coming soon...
+#### This is currently in progress. This notice will be removed when ready for deployment and documentation is updated. Assume unusable nonsense below.
 
----
-
-### Notes
+## Notes
 
 
 * Based on: https://github.com/danisla/dockerfiles/tree/master/rpi-omxplayer
