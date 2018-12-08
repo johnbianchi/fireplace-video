@@ -17,7 +17,7 @@ RUN apk update && apk upgrade && \
     util-linux \
     pciutils \
     usbutils \
-    coreutils \ github JMH  
+    coreutils \  
     findutils \
     supervisor \
     ffmpeg \
