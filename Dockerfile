@@ -23,8 +23,9 @@ RUN apk update && apk upgrade && \
     ffmpeg \
     omxplayer
 
-COPY containerFiles /
-COPY play.sh /
+MKDIR /home/pi
+COPY containerFiles /home/pi/
+COPY play.sh /home/pi/
 
-#CMD ["/play.sh"]
-CMD ["/bin/sh", "-c", "/play.sh"]
+# CMD ["/bin/sh", "-c", "/home/pi/play.sh"]
+CMD ["/home/pi/play.sh"]
