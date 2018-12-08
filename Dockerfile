@@ -30,16 +30,18 @@ RUN apt-get update -y \
         libasound2 \
         libfreetype6 \
         libpcre3 \
+        libraspberrypi0 \
         libsmbclient \
         libssh-4 \
         wget \
     && apt-get clean
 
 #RUN wget http://omxplayer.sconde.net/builds/omxplayer_0.3.6~git20150912~d99bd86_armhf.deb -O /tmp/omxplayer.deb
-RUN wget https://omxplayer.sconde.net/builds/omxplayer_0.3.7~git20170130~62fb580_armhf.deb -O /tmp/omxplayer.deb
+#RUN wget https://omxplayer.sconde.net/builds/omxplayer_0.3.7~git20170130~62fb580_armhf.deb -O /tmp/omxplayer.deb
+RUN wget https://archive.raspberrypi.org/debian/pool/main/o/omxplayer/omxplayer_0.3.6~git20160102~f544084_armhf.deb -O /tmp/omxplayer.deb
 RUN dpkg -i /tmp/omxplayer.deb
 
-#
+# play it
 RUN mkdir -v /home/pi
 COPY containerFiles /home/pi/
 WORKDIR /home/pi
