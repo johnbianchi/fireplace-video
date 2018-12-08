@@ -17,7 +17,7 @@ RUN apk update && apk upgrade && \
     util-linux \
     pciutils \
     usbutils \
-    coreutils \
+    coreutils \ github JMH  
     findutils \
     supervisor \
     ffmpeg \
@@ -26,4 +26,5 @@ RUN apk update && apk upgrade && \
 COPY containerFiles /
 COPY play.sh /
 
-CMD ["/play.sh"]
+#CMD ["/play.sh"]
+CMD ["/bin/sh", "-c", "/play.sh"]

@@ -1,5 +1,8 @@
 #!/bin/sh
 #
+pwd
+ls -l 
+#
 fbcp &
 #
 # omxplayer -b --loop Fireplace.mp4
