@@ -21,17 +21,19 @@ LABEL maintainer "johnbianchi@github.com"
 #  && wget https://archive.raspberrypi.org/debian/pool/main/o/omxplayer/omxplayer_0.3.6~git20160102~f544084_armhf.deb \
 #  && dpkg -i omxplayer_0.3.6~git20160102~f544084_armhf.deb
 
-RUN apt-get update -y
-
-RUN apt-get install -y --no-install-recommends \
-    curl \
-    wget \
-    dbus \
-    libfreetype6 \
-    libasound2 \
-    fonts-freefont-ttf \
-    fbset \
- && apt-get clean
+RUN apt-get update -y \
+    && apt-get install -y --no-install-recommends \
+        curl \
+        dbus \
+        fbset \
+        fonts-freefont-ttf \
+        libasound2 \
+        libfreetype6 \
+        libpcre3 \
+        libsmbclient \
+        libssh-4 \
+        wget \
+    && apt-get clean
 
 #RUN wget http://omxplayer.sconde.net/builds/omxplayer_0.3.6~git20150912~d99bd86_armhf.deb -O /tmp/omxplayer.deb
 RUN wget https://omxplayer.sconde.net/builds/omxplayer_0.3.7~git20170130~62fb580_armhf.deb -O /tmp/omxplayer.deb
