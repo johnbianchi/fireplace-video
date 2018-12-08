@@ -1,28 +1,43 @@
-# Experimenting with creating a base Apline/armhf image which includes:
-#   * Updates
-#   * Base tools
-#   * Development tools
 #
+#FROM alpine
+FROM resin/rpi-raspbian
 
-FROM alpine
 LABEL maintainer "johnbianchi@github.com"
 
-####################
-# Toolsets
-RUN apk update && apk upgrade && \
-  apk add --no-cache --virtual --verbose \
-    bash \
-    bash-doc \
-    bash-completion \
-    util-linux \
-    pciutils \
-    usbutils \
-    coreutils \  
-    findutils \
-    supervisor \
-    ffmpeg \
-    omxplayer
+# RUN apt-get update -y \
+#  && apt-get -y install \
+#     wget 
+#     ca-certificates \
+#     libpcre3 \
+#     libfreetype6 \
+#     fonts-freefont-ttf \
+#     dbus \
+#     libssl1.0.0 \
+#     libsmbclient \
+#     libssh-4 \
+#     fbset \
+#     libraspberrypi0 \
+#  && apt-get clean
+#  && wget https://archive.raspberrypi.org/debian/pool/main/o/omxplayer/omxplayer_0.3.6~git20160102~f544084_armhf.deb \
+#  && dpkg -i omxplayer_0.3.6~git20160102~f544084_armhf.deb
 
+RUN apt-get update -y \
+ && apt-get install -y --no-install-recommends \
+    wget \
+    libfreetype6 \
+    dbus \
+    libsmbclient \
+    libssh-4 \
+    libpcre3 \
+    fonts-freefont-ttf \
+    fbset \
+ && apt-get clean
+
+#RUN wget http://omxplayer.sconde.net/builds/omxplayer_0.3.6~git20150912~d99bd86_armhf.deb -O /tmp/omxplayer.deb
+RUN wget https://omxplayer.sconde.net/builds/omxplayer_0.3.7~git20170130~62fb580_armhf.deb -O /tmp/omxplayer.deb
+RUN dpkg -i /tmp/omxplayer.deb
+
+#
 RUN mkdir -v /home/pi
 COPY containerFiles /home/pi/
 WORKDIR /home/pi
