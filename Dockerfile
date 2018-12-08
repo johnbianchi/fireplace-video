@@ -5,17 +5,30 @@
 #
 
 FROM armhf/alpine
-LABEL maintainer "matt@brightpixel.com"
+LABEL maintainer "johnbianchi@github.com"
 
 ####################
 # Toolsets
 RUN apk update && apk upgrade && \
   apk add --no-cache --virtual .build-deps \
     alpine-sdk \
-    bash git bash-doc bash-completion \
+    bash \
+    git \
+    bash-doc \
+    bash-completion \
     nano \
-    util-linux pciutils usbutils coreutils findutils grep \
-    build-base gcc abuild binutils binutils-doc gcc-doc \
+    util-linux \
+    pciutils \
+    usbutils \
+    coreutils \
+    findutils \
+    grep \
+    build-base \
+    gcc \
+    abuild \
+    binutils \
+    binutils-doc \
+    gcc-doc \
     linux-headers \
     eudev-dev \
     man man-pages \
@@ -30,7 +43,9 @@ RUN apk update && apk upgrade && \
     omxplayer
 
 RUN mkdir /home/piarmy-video-player
-COPY containerFiles /home/piarmy-video-player
+COPY containerFiles /home/piarmy-video-player/
+COPY play.sh /home/piarmy-video-player/
+
 WORKDIR /home/piarmy-video-player
 
-CMD ["omxplayer", "-b", "--loop", "ethereal_wave.mp4"]
+CMD ["./play.sh"]
