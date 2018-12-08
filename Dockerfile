@@ -28,4 +28,4 @@ COPY containerFiles /home/pi/
 WORKDIR /home/pi
 
 # CMD ["/home/pi/play.sh"]
-CMD ["/bin/sh", "-c", "/home/pi/play.sh"]
+CMD ["/bin/bash", "-c", "/home/pi/play.sh"]

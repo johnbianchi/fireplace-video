@@ -1,5 +1,4 @@
-#!/bin/sh
-set -x
+#!/bin/bash -x
 #
 pwd
 ls -l 
