@@ -4,13 +4,13 @@
 #   * Development tools
 #
 
-FROM armhf/alpine
+FROM alpine
 LABEL maintainer "johnbianchi@github.com"
 
 ####################
 # Toolsets
 RUN apk update && apk upgrade && \
-  apk add --no-cache --virtual \
+  apk add --no-cache --virtual --verbose \
     bash \
     bash-doc \
     bash-completion \
