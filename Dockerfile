@@ -42,10 +42,7 @@ RUN apk update && apk upgrade && \
     ffmpeg \
     omxplayer
 
-RUN mkdir /home/piarmy-video-player
-COPY containerFiles /home/piarmy-video-player/
-COPY play.sh /home/piarmy-video-player/
+COPY containerFiles /
+COPY play.sh /
 
-WORKDIR /home/piarmy-video-player
-
-CMD ["./play.sh"]
+CMD ["/play.sh"]
